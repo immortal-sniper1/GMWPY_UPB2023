@@ -550,6 +550,12 @@
     (uuid fdd5525d-05af-4e64-96d3-48d22293619b)
   )
 
+  (text " 1.2 V, 0.1 A or 25 mW absolute max\nbut in practice under 0.7v"
+    (at 30.48 146.05 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 5bdb84ed-9b2a-4049-b825-0a6ef07351bf)
+  )
+
   (label "OUT2" (at 170.18 59.69 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 0dbec895-ce13-4829-b7fb-df9744f35ccd)
