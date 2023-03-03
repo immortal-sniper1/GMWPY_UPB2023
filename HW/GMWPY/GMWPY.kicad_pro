@@ -457,6 +457,14 @@
     [
       "a96ac728-1b0f-4bff-8b5b-6c8fc87821b3",
       ""
+    ],
+    [
+      "4b12882e-9ea4-4ca6-b0f1-77cc2a6953ae",
+      "Measurements"
+    ],
+    [
+      "8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8",
+      "MCU"
     ]
   ],
   "text_variables": {}
