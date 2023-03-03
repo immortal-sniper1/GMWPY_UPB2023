@@ -1968,7 +1968,7 @@
     (stroke (width 0.1524) (type solid) (color 0 0 0 0))
     (fill (color 0 0 0 0.0000))
     (uuid 4b12882e-9ea4-4ca6-b0f1-77cc2a6953ae)
-    (property "Sheet name" "Measurements" (id 0) (at 195.58 34.8484 0)
+    (property "Sheet name" "GAS_Measurements" (id 0) (at 195.58 34.8484 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
     (property "Sheet file" "Measurements.kicad_sch" (id 1) (at 195.58 57.7346 0)
