@@ -1586,24 +1586,6 @@
     (pin "1" (uuid 4fae4806-bbb4-4722-a21b-89a4ddebb99e))
   )
 
-  (symbol (lib_id "Connector:TestPoint") (at 154.94 55.88 0) (unit 1)
-    (in_bom no) (on_board yes)
-    (uuid 604d0752-765a-410c-a753-36e5ab0c5d42)
-    (property "Reference" "TP2" (id 0) (at 154.9399 50.8 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Value" "TestPoint" (id 1) (at 157.48 53.8479 0)
-      (effects (font (size 1.27 1.27)) (justify left) hide)
-    )
-    (property "Footprint" "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm" (id 2) (at 160.02 55.88 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "~" (id 3) (at 160.02 55.88 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 22f0c8a1-8434-4dc0-9c1f-1506aaa25e49))
-  )
-
   (symbol (lib_id "power:GND") (at 160.655 67.945 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 62efc235-eff6-4ef4-9fe0-7e192fbad2fc)
@@ -1675,6 +1657,24 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 9e06b2ab-f958-4b44-8482-3316d9477b5a))
+  )
+
+  (symbol (lib_id "Connector:TestPoint") (at 154.94 55.88 0) (unit 1)
+    (in_bom no) (on_board yes)
+    (uuid baaf7cb4-5d12-4f34-a647-4aedbba17a9f)
+    (property "Reference" "TP?" (id 0) (at 153.67 50.165 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "TestPoint" (id 1) (at 157.48 53.8479 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "Footprint" "TestPoint:TestPoint_Pad_1.5x1.5mm" (id 2) (at 160.02 55.88 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (id 3) (at 160.02 55.88 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 371f413a-4f9f-44c6-88fe-9bb4d2be8e71))
   )
 
   (symbol (lib_id "Device:C_Small") (at 144.145 34.925 0) (unit 1)
@@ -1955,7 +1955,7 @@
     (property "Value" "TestPoint" (id 1) (at 181.7371 32.385 0)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
-    (property "Footprint" "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm" (id 2) (at 179.705 34.925 0)
+    (property "Footprint" "TestPoint:TestPoint_Pad_1.5x1.5mm" (id 2) (at 179.705 34.925 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 179.705 34.925 0)
@@ -2172,6 +2172,15 @@
     (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/daa3d631-dbf7-4078-97bb-d1559b0e231c"
       (reference "#PWR059") (unit 1) (value "+3V3") (footprint "")
     )
+    (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/4c18df0c-39f4-43cc-b565-8284eca35f80"
+      (reference "#PWR0101") (unit 1) (value "VBUS") (footprint "")
+    )
+    (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/f2842bb5-ecf4-41a8-9d41-22c3e28e4510"
+      (reference "#PWR0102") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/9415a3e4-944e-478e-aece-69fc790dafd6"
+      (reference "#PWR0103") (unit 1) (value "GND") (footprint "")
+    )
     (path "/bc5bac3c-8916-4964-a51d-7cdeef038fe4"
       (reference "C1") (unit 1) (value "10u") (footprint "Capacitor_SMD:C_0805_2012Metric")
     )
@@ -2261,6 +2270,9 @@
     )
     (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/746b32ca-49e3-4241-bd98-aa53861981e5"
       (reference "J2") (unit 1) (value "Micro_SD_Card_Det") (footprint "Connector_Card:microSD_HC_Molex_104031-0811")
+    )
+    (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/4835fad9-1078-433b-85be-8d653e0113b1"
+      (reference "J3") (unit 1) (value "Conn_01x10") (footprint "")
     )
     (path "/d3e524e5-c58d-48ef-bb76-107b5bb6bb24"
       (reference "L1") (unit 1) (value "L_Small") (footprint "Inductor_SMD:L_0603_1608Metric")
@@ -2358,9 +2370,6 @@
     (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/6607d107-2b8a-4c7b-aab1-cbbd98418725"
       (reference "R30") (unit 1) (value "10k") (footprint "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder")
     )
-    (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/7c5eaef0-d5f2-476c-b608-4a819aab710a"
-      (reference "R31") (unit 1) (value "10") (footprint "Resistor_SMD:R_0402_1005Metric")
-    )
     (path "/4b12882e-9ea4-4ca6-b0f1-77cc2a6953ae/24f8c7d0-d0f4-437f-967e-5b6c50de8879"
       (reference "RG1") (unit 1) (value "gain") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
@@ -2374,25 +2383,25 @@
       (reference "SW2") (unit 1) (value "MCU_RESET") (footprint "SamacSys_Parts:PTS526SK15SMTR2LFS")
     )
     (path "/efd7990e-4c48-4368-9b72-42872f3dbcf7"
-      (reference "TP1") (unit 1) (value "TestPoint") (footprint "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm")
+      (reference "TP1") (unit 1) (value "TestPoint") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
     )
-    (path "/604d0752-765a-410c-a753-36e5ab0c5d42"
-      (reference "TP2") (unit 1) (value "TestPoint") (footprint "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm")
+    (path "/4b12882e-9ea4-4ca6-b0f1-77cc2a6953ae/001bbaf7-594a-48a1-8501-fcb7cf01dfa9"
+      (reference "TP?") (unit 1) (value "TestPoint") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
     )
-    (path "/4b12882e-9ea4-4ca6-b0f1-77cc2a6953ae/e9e6e9fe-cad4-4da8-980a-6367260b637b"
-      (reference "TP3") (unit 1) (value "TestPoint") (footprint "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm")
+    (path "/4b12882e-9ea4-4ca6-b0f1-77cc2a6953ae/00f1ab9b-4861-417d-ba75-24a1c2f53793"
+      (reference "TP?") (unit 1) (value "TestPoint") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
     )
-    (path "/4b12882e-9ea4-4ca6-b0f1-77cc2a6953ae/f117d029-6fd8-4a7a-b460-aca583511ff5"
-      (reference "TP4") (unit 1) (value "TestPoint") (footprint "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm")
+    (path "/4b12882e-9ea4-4ca6-b0f1-77cc2a6953ae/1cd6cdf3-d8de-45d5-ae48-857fe50290ce"
+      (reference "TP?") (unit 1) (value "TestPoint") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
     )
-    (path "/4b12882e-9ea4-4ca6-b0f1-77cc2a6953ae/e0485600-a88d-4195-b35f-8b45a1f3dfb5"
-      (reference "TP5") (unit 1) (value "TestPoint") (footprint "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm")
+    (path "/4b12882e-9ea4-4ca6-b0f1-77cc2a6953ae/7890b072-4a22-47b3-b94b-4aadc7e0fa82"
+      (reference "TP?") (unit 1) (value "TestPoint") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
     )
-    (path "/4b12882e-9ea4-4ca6-b0f1-77cc2a6953ae/50192094-8530-40b3-bcc3-34fe8b9e24ee"
-      (reference "TP6") (unit 1) (value "TestPoint") (footprint "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm")
+    (path "/4b12882e-9ea4-4ca6-b0f1-77cc2a6953ae/989e6585-8eb5-4074-8154-2f24230b3ec9"
+      (reference "TP?") (unit 1) (value "TestPoint") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
     )
-    (path "/4b12882e-9ea4-4ca6-b0f1-77cc2a6953ae/06964a60-748c-4c5e-b691-349ef2c6d67d"
-      (reference "TP7") (unit 1) (value "TestPoint") (footprint "TestPoint:TestPoint_THTPad_2.0x2.0mm_Drill1.0mm")
+    (path "/baaf7cb4-5d12-4f34-a647-4aedbba17a9f"
+      (reference "TP?") (unit 1) (value "TestPoint") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")
     )
     (path "/8946f3ac-8ac5-406e-bb7a-7095f702367f"
       (reference "U1") (unit 1) (value "AMS1117-3.3") (footprint "Package_TO_SOT_SMD:SOT-223-3_TabPin2")
@@ -2410,7 +2419,7 @@
       (reference "U5") (unit 1) (value "TSV991ILT") (footprint "Package_TO_SOT_SMD:SOT-23-5_HandSoldering")
     )
     (path "/4b12882e-9ea4-4ca6-b0f1-77cc2a6953ae/d6e5831d-ad46-4a11-9428-82f2f8142aa6"
-      (reference "U6") (unit 1) (value "EC4-1000-H2") (footprint "")
+      (reference "U6") (unit 1) (value "EC4-1000-H2") (footprint "Z_mycustom_footprint_lib:EC4-3pin")
     )
     (path "/4b12882e-9ea4-4ca6-b0f1-77cc2a6953ae/ca3b576e-eeb2-49e3-ab04-6c6e9575cc62"
       (reference "U7") (unit 1) (value "TSV991ILT") (footprint "Package_TO_SOT_SMD:SOT-23-5_HandSoldering")
