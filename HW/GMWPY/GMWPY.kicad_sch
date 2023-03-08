@@ -2441,6 +2441,15 @@
     (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/96c394d6-5ed6-4843-a0d3-a092574d8528"
       (reference "#PWR0110") (unit 1) (value "GND") (footprint "")
     )
+    (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/a80af322-e042-4945-8682-242aedad8821"
+      (reference "#PWR0111") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/82d8bee7-23f6-4746-bb4a-4f46043e35c4"
+      (reference "#PWR0112") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/1bc0472d-6669-4ed2-bbf5-6d5610be364e"
+      (reference "#PWR0113") (unit 1) (value "+3V3") (footprint "")
+    )
     (path "/bc5bac3c-8916-4964-a51d-7cdeef038fe4"
       (reference "C1") (unit 1) (value "10u") (footprint "Capacitor_SMD:C_0805_2012Metric")
     )
@@ -2542,6 +2551,9 @@
     )
     (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/9045b782-6241-48e0-81be-e49d6354d43a"
       (reference "C34") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder")
+    )
+    (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/94fc7c29-58fa-4218-aba3-a8fa2bc07a14"
+      (reference "C35") (unit 1) (value "100n") (footprint "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder")
     )
     (path "/2183e9cb-09d5-402d-8f36-13f1c14daad4"
       (reference "D1") (unit 1) (value "RED") (footprint "LED_SMD:LED_0603_1608Metric")
@@ -2711,6 +2723,9 @@
     (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/02402386-1a2b-4d95-a688-0c9b4a4d966d"
       (reference "R38") (unit 1) (value "1k") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
+    (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/63577da3-4078-4929-b2de-2fac34ea4a47"
+      (reference "R39") (unit 1) (value "10k") (footprint "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder")
+    )
     (path "/4b12882e-9ea4-4ca6-b0f1-77cc2a6953ae/8d74612d-d6fa-4d38-8e98-ccee77fb9175"
       (reference "RG1") (unit 1) (value "gain") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
@@ -2722,6 +2737,9 @@
     )
     (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/b503d9e9-e8e8-4c7f-aeca-b2cdb4adb028"
       (reference "SW2") (unit 1) (value "MCU_RESET") (footprint "SamacSys_Parts:PTS526SK15SMTR2LFS")
+    )
+    (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/4b822557-674c-488e-808b-1c6f175f9aa6"
+      (reference "SW3") (unit 1) (value "MCU_RESET") (footprint "SamacSys_Parts:PTS526SK15SMTR2LFS")
     )
     (path "/efd7990e-4c48-4368-9b72-42872f3dbcf7"
       (reference "TP1") (unit 1) (value "TestPoint") (footprint "TestPoint:TestPoint_Pad_1.5x1.5mm")

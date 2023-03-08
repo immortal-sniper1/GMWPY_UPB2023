@@ -7,6 +7,8 @@ MCP342x adc1 = MCP342x(address1);
 uint8_t address2 = 0xA3;
 MCP342x adc2 = MCP342x(address2);
 
+float H2ppm=0.2; // 0.2mV/ppm 
+
 /*
 ADC1:
 CH1 CH4 REF PIN
@@ -19,10 +21,30 @@ CH2 REFERENCE MEASURED FROM GND
 */
 
 
+void list_devices()
+{
+  Serial.println("The MCP3422 and MCP3426 use I2C address 0x68, all other devices can be");
+  Serial.println("configured to use any address in the range 0x68 - 0x6F (inclusive).");
+  Serial.println("Be aware that the DS1307 uses address 0x68.");
+  Serial.println();
+  
+  for (uint8_t add = 0X0; add < 0X80; add++) {
+    //Serial.print("Trying ");
+    //Serial.println(add);
+    Wire.requestFrom(add, (uint8_t)1);
+    if (Wire.available()) {
+      Serial.print("Found device at: 0x");
+      Serial.println(add, HEX);
+    }
+  }
+  Serial.println("Done");
+}
+
 void setup(void)
 {
   Serial.begin(9600);
   Wire.begin();
+  list_devices();
 
   // Enable power for MCP342x (needed for FL100 shield only)
   pinMode(9, OUTPUT);
