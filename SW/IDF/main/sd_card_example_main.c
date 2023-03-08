@@ -50,13 +50,15 @@ void app_main(void)
     // By default, SD card frequency is initialized to SDMMC_FREQ_DEFAULT (20MHz)
     // For setting a specific frequency, use host.max_freq_khz (range 400kHz - 40MHz for SDMMC)
     // Example: for fixed frequency of 10MHz, use host.max_freq_khz = 10000;
-    sdmmc_host_t host = SDMMC_HOST_DEFAULT()
-    ;
+    sdmmc_host_t host = SDMMC_HOST_DEFAULT();
 
     // This initializes the slot without card detect (CD) and write protect (WP) signals.
     // Modify slot_config.gpio_cd and slot_config.gpio_wp if your board has these signals.
-    sdmmc_slot_config_t slot_config = SDMMC_SLOT_CONFIG_DEFAULT()
-    ;
+    sdmmc_slot_config_t slot_config = SDMMC_SLOT_CONFIG_DEFAULT();
+    slot_config.gpio_cd = GPIO_NUM_40;
+
+
+
 
     // Set bus width to use:
 #ifdef CONFIG_EXAMPLE_SDMMC_BUS_WIDTH_4
