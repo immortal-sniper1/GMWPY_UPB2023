@@ -2435,6 +2435,12 @@
     (path "/4b12882e-9ea4-4ca6-b0f1-77cc2a6953ae/acc771f4-3ebe-42d3-8729-36a2ef926b45"
       (reference "#PWR0108") (unit 1) (value "GND") (footprint "")
     )
+    (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/9fe44512-286b-4799-b79c-5e9602af54a4"
+      (reference "#PWR0109") (unit 1) (value "+3V3") (footprint "")
+    )
+    (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/96c394d6-5ed6-4843-a0d3-a092574d8528"
+      (reference "#PWR0110") (unit 1) (value "GND") (footprint "")
+    )
     (path "/bc5bac3c-8916-4964-a51d-7cdeef038fe4"
       (reference "C1") (unit 1) (value "10u") (footprint "Capacitor_SMD:C_0805_2012Metric")
     )
@@ -2545,6 +2551,9 @@
     )
     (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/3945171e-3a8c-4f37-9bb0-ed5a6df84f32"
       (reference "D3") (unit 1) (value "RED") (footprint "LED_SMD:LED_0603_1608Metric")
+    )
+    (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/3c169b16-c54e-4c2b-9858-4cc4b77fa130"
+      (reference "D4") (unit 1) (value "RED") (footprint "LED_SMD:LED_0603_1608Metric")
     )
     (path "/352216c7-57db-4dff-973c-bdc7abb35a38"
       (reference "FB1") (unit 1) (value "FerriteBead_Small") (footprint "Inductor_SMD:L_0805_2012Metric")
@@ -2692,6 +2701,15 @@
     )
     (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/e03589f2-fd87-4015-a49f-f4d77a0d6802"
       (reference "R35") (unit 1) (value "1k") (footprint "Resistor_SMD:R_0603_1608Metric")
+    )
+    (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/a336a1d6-fefe-481e-93ca-49bb311ae25c"
+      (reference "R36") (unit 1) (value "10k") (footprint "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder")
+    )
+    (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/1be0c232-39f4-4ba6-839f-2213d3c5c538"
+      (reference "R37") (unit 1) (value "10k") (footprint "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder")
+    )
+    (path "/8ec6447b-01cd-4c25-84b7-d61f3cfe2fa8/02402386-1a2b-4d95-a688-0c9b4a4d966d"
+      (reference "R38") (unit 1) (value "1k") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/4b12882e-9ea4-4ca6-b0f1-77cc2a6953ae/8d74612d-d6fa-4d38-8e98-ccee77fb9175"
       (reference "RG1") (unit 1) (value "gain") (footprint "Resistor_SMD:R_0603_1608Metric")
