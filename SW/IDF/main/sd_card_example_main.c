@@ -13,12 +13,36 @@
 #include "esp_vfs_fat.h"
 #include "sdmmc_cmd.h"
 #include "driver/sdmmc_host.h"
+#include <string.h>
 
 static const char *TAG = "SD_card_main";
 
 #define MOUNT_POINT "/sdcard"
 
 // gpio 40 card detect
+
+void SD_CSV_writer()
+    {
+    const char *data_file = MOUNT_POINT"/DATAA.csv";
+
+    ESP_LOGI(TAG, "Opening file %s", data_file);
+    FILE *f = fopen(data_file, "w");
+    if (f == NULL)
+	{
+	ESP_LOGE(TAG, "Failed to open file for writing");
+	return;
+	}
+
+    uint32_t ceva = 92742377692;
+
+    fprintf(f, "Hello %d\n", ceva);
+
+    char my_table_header = "TIME, ADC1,ADC2,ADC3,ADC4,MQTT_status";
+    fprintf(f, "%s\n", *my_table_header);
+    fprintf(f, "Hello %s\n", *my_table_header);
+    fclose(f);
+    ESP_LOGI(TAG, "File written");
+    }
 
 void app_main(void)
     {
@@ -189,29 +213,5 @@ void app_main(void)
     // All done, unmount partition and disable SDMMC peripheral
     esp_vfs_fat_sdcard_unmount(mount_point, card);
     ESP_LOGI(TAG, "Card unmounted");
-    }
-
-void SD_CSV_writer()
-    {
-    const char *data_file = MOUNT_POINT"/DATAA.csv";
-
-    ESP_LOGI(TAG, "Opening file %s", data_file);
-    FILE *f = fopen( data_file, "w");
-    if (f == NULL)
-	{
-	ESP_LOGE(TAG, "Failed to open file for writing");
-	return;
-	}
-
-    uint32_t ceva=92742377692;
-
-
-    fprintf(f, "Hello %d\n", ceva);
-
-    char my_table_header = "TIME, ADC1,ADC2,ADC3,ADC4,MQTT_status";
-    fprintf(f, "%s\n", *my_table_header);
-    fprintf(f, "Hello %s\n", *my_table_header);
-    fclose(f);
-    ESP_LOGI(TAG, "File written");
     }
 

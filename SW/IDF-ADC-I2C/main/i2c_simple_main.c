@@ -19,8 +19,12 @@
 #include <stdio.h>
 #include "esp_log.h"
 #include "driver/i2c.h"
+#include <mcp342x.h>
+#include <string.h>
+#include <freertos/FreeRTOS.h>
+#include <freertos/task.h>
 
-static const char *TAG = "i2c-simple-example";
+static const char *TAG = "i2c-simple-MCP3422";
 
 #define I2C_MASTER_SCL_IO           CONFIG_I2C_MASTER_SCL      /*!< GPIO number used for I2C master clock */
 #define I2C_MASTER_SDA_IO           CONFIG_I2C_MASTER_SDA      /*!< GPIO number used for I2C master data  */
@@ -35,6 +39,10 @@ static const char *TAG = "i2c-simple-example";
 
 #define MPU9250_PWR_MGMT_1_REG_ADDR         0x6B        /*!< Register addresses of the power managment register */
 #define MPU9250_RESET_BIT                   7
+
+
+#define MCP3422_1_ADDR               0xA3
+#define MCP3422_2_ADDR               0xA6
 
 /**
  * @brief Read a sequence of bytes from a MPU9250 sensor registers
@@ -86,14 +94,64 @@ static esp_err_t i2c_master_init(void)
     i2c_param_config(i2c_master_port1, &conf);
 
     return i2c_driver_install(i2c_master_port1, conf.mode,
-	    I2C_MASTER_RX_BUF_DISABLE, I2C_MASTER_TX_BUF_DISABLE, 0);
+    I2C_MASTER_RX_BUF_DISABLE, I2C_MASTER_TX_BUF_DISABLE, 0);
     }
+
+
+void start_ADC(int no, uint8_t bits, uint8_t mode, uint8_t adress)
+{
+    esp_err_t ADC_error;
+    ADC_error= mcp342x_init_desc(  no,  adress,  I2C_MASTER_NUM, sda_gpio,  scl_gpio);
+
+}
+
+
+
+static void task(void *arg)
+{
+    // Clear device descriptor
+    memset(&adc, 0, sizeof(adc));
+
+    ESP_ERROR_CHECK(mcp342x_init_desc(&adc, CONFIG_EXAMPLE_I2C_ADDR, I2C_PORT, CONFIG_EXAMPLE_I2C_MASTER_SDA, CONFIG_EXAMPLE_I2C_MASTER_SCL));
+
+    adc.channel = CHANNEL;
+    adc.gain = GAIN;
+    adc.resolution = RESOLUTION;
+    adc.mode = MCP342X_CONTINUOUS;
+
+    uint32_t wait_time;
+    ESP_ERROR_CHECK(mcp342x_get_sample_time_us(&adc, &wait_time)); // microseconds
+    wait_time = wait_time / 1000 + 1; // milliseconds
+
+    // start first conversion
+    ESP_ERROR_CHECK(mcp342x_start_conversion(&adc));
+
+    while (1)
+    {
+        // Wait for conversion
+        vTaskDelay(pdMS_TO_TICKS(wait_time));
+
+        // Read data
+        float volts;
+        ESP_ERROR_CHECK(mcp342x_get_voltage(&adc, &volts, NULL));
+        printf("Channel: %d, voltage: %0.4f\n", adc.channel, volts);
+    }
+}
+
+
 
 void app_main(void)
     {
     uint8_t data[2];
     ESP_ERROR_CHECK(i2c_master_init());
     ESP_LOGI(TAG, "I2C initialized successfully");
+
+
+    //start_ADC(1);
+    //start_ADC(2);
+
+
+    //start of the IMU part
 
     /* Read the MPU9250 WHO_AM_I register, on power up the register should have the value 0x71 */
     ESP_ERROR_CHECK(mpu9250_register_read(MPU9250_WHO_AM_I_REG_ADDR, data, 1));
@@ -102,6 +160,8 @@ void app_main(void)
     /* Demonstrate writing by reseting the MPU9250 */
     ESP_ERROR_CHECK(
 	    mpu9250_register_write_byte(MPU9250_PWR_MGMT_1_REG_ADDR, 1 << MPU9250_RESET_BIT));
+
+// end of IMU part
 
     ESP_ERROR_CHECK(i2c_driver_delete(I2C_MASTER_NUM));
     ESP_LOGI(TAG, "I2C de-initialized successfully");
