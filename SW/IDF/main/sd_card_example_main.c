@@ -27,15 +27,19 @@ void app_main(void)
     // Options for mounting the filesystem.
     // If format_if_mount_failed is set to true, SD card will be partitioned and
     // formatted in case when mounting fails.
-    esp_vfs_fat_sdmmc_mount_config_t mount_config =
-	{
-#ifdef CONFIG_EXAMPLE_FORMAT_IF_MOUNT_FAILED
-        .format_if_mount_failed = true,
-#else
-		.format_if_mount_failed = false,
-#endif // EXAMPLE_FORMAT_IF_MOUNT_FAILED
-		.max_files = 5, .allocation_unit_size = 16 * 1024
-	};
+    /*
+     esp_vfs_fat_sdmmc_mount_config_t mount_config =
+     {
+     #ifdef CONFIG_EXAMPLE_FORMAT_IF_MOUNT_FAILED
+     .format_if_mount_failed = true,
+     #else
+     .format_if_mount_failed = false,
+     #endif // EXAMPLE_FORMAT_IF_MOUNT_FAILED
+     .max_files = 5, .allocation_unit_size = 16 * 1024
+     };
+
+     */
+
     sdmmc_card_t *card;
     const char mount_point[] = MOUNT_POINT;
     ESP_LOGI(TAG, "Initializing SD card");
@@ -50,15 +54,14 @@ void app_main(void)
     // By default, SD card frequency is initialized to SDMMC_FREQ_DEFAULT (20MHz)
     // For setting a specific frequency, use host.max_freq_khz (range 400kHz - 40MHz for SDMMC)
     // Example: for fixed frequency of 10MHz, use host.max_freq_khz = 10000;
-    sdmmc_host_t host = SDMMC_HOST_DEFAULT();
+    sdmmc_host_t host = SDMMC_HOST_DEFAULT()
+    ;
 
     // This initializes the slot without card detect (CD) and write protect (WP) signals.
     // Modify slot_config.gpio_cd and slot_config.gpio_wp if your board has these signals.
-    sdmmc_slot_config_t slot_config = SDMMC_SLOT_CONFIG_DEFAULT();
+    sdmmc_slot_config_t slot_config = SDMMC_SLOT_CONFIG_DEFAULT()
+    ;
     slot_config.gpio_cd = GPIO_NUM_40;
-
-
-
 
     // Set bus width to use:
 #ifdef CONFIG_EXAMPLE_SDMMC_BUS_WIDTH_4
@@ -97,9 +100,9 @@ void app_main(void)
     // Enable internal pullups on enabled pins. The internal pullups
     // are insufficient however, please make sure 10k external pullups are
     // connected on the bus. This is for debug / example purpose only.
-    slot_config.flags |= SDMMC_SLOT_FLAG_INTERNAL_PULLUP;
-
+    //slot_config.flags |= SDMMC_SLOT_FLAG_INTERNAL_PULLUP;
     ESP_LOGI(TAG, "Mounting filesystem");
+
     ret = esp_vfs_fat_sdmmc_mount(mount_point, &host, &slot_config,
 	    &mount_config, &card);
 
@@ -125,6 +128,7 @@ void app_main(void)
 
     // Use POSIX and C standard library functions to work with files:
 
+    // de aici incepe partea de scris pe SD ------------------------------------------------
     // First create a file.
     const char *file_hello = MOUNT_POINT"/hello.txt";
 
@@ -135,9 +139,12 @@ void app_main(void)
 	ESP_LOGE(TAG, "Failed to open file for writing");
 	return;
 	}
+
     fprintf(f, "Hello %s!\n", card->cid.name);
     fclose(f);
     ESP_LOGI(TAG, "File written");
+
+    // scris basic este gata--------------------
 
     const char *file_foo = MOUNT_POINT"/foo.txt";
 
@@ -183,3 +190,28 @@ void app_main(void)
     esp_vfs_fat_sdcard_unmount(mount_point, card);
     ESP_LOGI(TAG, "Card unmounted");
     }
+
+void SD_CSV_writer()
+    {
+    const char *data_file = MOUNT_POINT"/DATAA.csv";
+
+    ESP_LOGI(TAG, "Opening file %s", data_file);
+    FILE *f = fopen( data_file, "w");
+    if (f == NULL)
+	{
+	ESP_LOGE(TAG, "Failed to open file for writing");
+	return;
+	}
+
+    uint32_t ceva=92742377692;
+
+
+    fprintf(f, "Hello %d\n", ceva);
+
+    char my_table_header = "TIME, ADC1,ADC2,ADC3,ADC4,MQTT_status";
+    fprintf(f, "%s\n", *my_table_header);
+    fprintf(f, "Hello %s\n", *my_table_header);
+    fclose(f);
+    ESP_LOGI(TAG, "File written");
+    }
+
