@@ -37,10 +37,11 @@ void SD_CSV_writer()
 
     fprintf(f, "Hello %d\n", ceva);
 
-    char my_table_header = "TIME, ADC1,ADC2,ADC3,ADC4,MQTT_status";
-    fprintf(f, "%s\n", *my_table_header);
-    fprintf(f, "Hello %s\n", *my_table_header);
+    char my_table_header[] = "TIME, ADC1,ADC2,ADC3,ADC4,MQTT_status";
+    fprintf(f, "%s\n", my_table_header);
+    fprintf(f, "Hello %s\n", my_table_header);
     fclose(f);
+
     ESP_LOGI(TAG, "File written");
     }
 
