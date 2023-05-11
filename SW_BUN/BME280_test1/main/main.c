@@ -22,7 +22,7 @@ void bme680_test(void *pvParameters)
     bme680_t sensor;
     memset(&sensor, 0, sizeof(bme680_t));
 
-    ESP_ERROR_CHECK(bme680_init_desc(&sensor, 0x76 , PORT,  GPIO_NUM_6 , GPIO_NUM_5  ));
+    ESP_ERROR_CHECK(bme680_init_desc(&sensor, "0x76" , PORT,  GPIO_NUM_6 , GPIO_NUM_5  ));
 
     // init the sensor
     ESP_ERROR_CHECK(bme680_init_sensor(&sensor));
