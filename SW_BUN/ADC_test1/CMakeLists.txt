@@ -4,8 +4,8 @@ cmake_minimum_required(VERSION 3.5)
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 
-set(EXTRA_COMPONENT_DIRS C:/Users/beia/esp-idf-lib/components)   #for beia laptorp
-# set(EXTRA_COMPONENT_DIRS E:/IDF-espressif/COMPONENTS/esp-idf-lib/components)   #for My laptorp
+#set(EXTRA_COMPONENT_DIRS C:/Users/beia/esp-idf-lib/components)   #for beia laptorp
+set(EXTRA_COMPONENT_DIRS E:/IDF-espressif/COMPONENTS/esp-idf-lib/components)   #for My laptorp
 
 
 project(app-template)
